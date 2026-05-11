@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia | INCONTRO Lombardía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --verde-incontro: #1A291E; 
+            --crema-incontro: #FAF9F7; 
+            --gold-incontro: #C39F64; 
+            --footer-base: #121212; 
+            --texto-claro: #EAEAEA;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--verde-incontro); 
+            color: var(--texto-claro);
+            margin: 0;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+        /* NAVEGACIÓN UNIVERSAL */
+        nav {
+            padding: 1.5rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; top: 0; left: 0; width: 100%;
+            box-sizing: border-box; z-index: 1000;
+            background: linear-gradient(rgba(26, 41, 30, 0.95), rgba(26, 41, 30, 0)); 
+        }
+        .logo-container img { height: 35px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: white; text-decoration: none; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--gold-incontro); }
+
+        /* HERO */
+        .hero-mini {
+            height: 50vh;
+            background-image: linear-gradient(rgba(26, 41, 30, 0.6), rgba(26, 41, 30, 0.8)), url('HISTORIA.png');
+            background-size: cover; 
+            background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .hero-mini h1 { font-size: 3rem; letter-spacing: 15px; text-transform: uppercase; margin: 0; color: var(--crema-incontro); }
+        .hero-mini .line { width: 40px; height: 1px; background: var(--gold-incontro); margin-top: 15px; }
+
+        /* SECCIÓN EDITORIAL (QUÉ SOMOS) */
+        .grid-editorial {
+            display: grid; grid-template-columns: 1fr 1fr;
+            background-color: var(--crema-incontro);
+            color: var(--verde-incontro);
+        }
+        
+        .image-container-editorial {
+            width: 100%;
+            min-height: 500px;
+            background-image: url('QUE SOMOS.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .editorial-text { padding: 5% 10%; display: flex; flex-direction: column; justify-content: center; }
+        .editorial-text span { color: var(--gold-incontro); text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .editorial-text h2 { font-size: 2.2rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 4px; }
+        .editorial-text p { font-size: 1.15rem; line-height: 1.8; font-style: italic; opacity: 0.8; }
+
+        /* L'ARTE DELLA CALMA */
+        .section-dark-editorial { display: grid; grid-template-columns: 1fr 1fr; background-color: var(--verde-incontro); }
+        .dark-text { padding: 5% 10%; order: 1; }
+        .dark-image { background-image: url('CHEF1.png'); background-size: cover; background-position: center; order: 2; min-height: 500px; }
+        .dark-text h2 { font-size: 2.2rem; color: var(--crema-incontro); margin-bottom: 1.5rem; letter-spacing: 4px; text-transform: uppercase; }
+        .dark-text p { font-size: 1.05rem; opacity: 0.7; margin-bottom: 1.5rem; line-height: 1.8; }
+
+        /* MISIÓN Y VISIÓN */
+        .mv-section {
+            background-color: var(--crema-incontro);
+            padding: 5rem 2rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .mv-card { padding: 1.5rem; border-left: 2px solid var(--gold-incontro); color: var(--verde-incontro); }
+        .mv-card h3 { text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 1rem; color: var(--gold-incontro); font-weight: 700; }
+        .mv-card p { font-size: 1.1rem; opacity: 0.8; }
+
+        /* CIERRE MEMORABLE */
+        .final-closure {
+            padding: 12rem 2rem;
+            text-align: center;
+            background-color: var(--verde-incontro);
+        }
+        .final-closure h2 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: var(--crema-incontro);
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.8;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+        }
+        .final-closure .author-line {
+            color: var(--gold-incontro);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: block;
+            margin-top: 1rem;
+        }
+        .final-closure img { height: 70px; margin-top: 5rem; }
+
+        /* FOOTER UNIVERSAL */
+        .footer-monument {
+            background-color: var(--footer-base);
+            padding: 6rem 2rem 4rem 2rem;
+            text-align: center;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            max-width: 1200px; margin: 0 auto 4rem auto; gap: 4rem; text-align: left;
+        }
+        .footer-col h4 { color: var(--gold-incontro); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(195, 159, 100, 0.2); padding-bottom: 10px; }
+        .footer-col p, .footer-col a { color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; transition: 0.3s; }
+        .footer-col a:hover { color: white; transform: translateX(5px); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; color: #444; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .grid-editorial, .section-dark-editorial, .mv-section { grid-template-columns: 1fr; }
+            .dark-text { order: 2; }
+            .dark-image { order: 1; min-height: 300px; }
+            nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="INCONTRO.html" class="logo-container">
+            <img src="LOGOTIPO INCONTRO.png" alt="LOGOTIPO INCONTRO">
+        </a>
+        <div class="nav-links">
+            <a href="HISTORIA.html">La Trattoria</a>
+            <a href="MENU.html">Nuestro Menú</a>
+            <a href="EXPERIENCIA.html">Tu Experiencia</a>
+        </div>
+    </nav>
+
+    <header class="hero-mini">
+        <h1>Historia</h1>
+        <div class="line"></div>
+    </header>
+
+    <section class="grid-editorial">
+        <div class="image-container-editorial"></div>
+        <div class="editorial-text">
+            <span>Legado & Tradizione</span>
+            <h2>Qué Somos</h2>
+            <p>"Descubrimos que la verdadera experiencia italiana no está en la rapidez, sino en la calma. Decidimos replicar esa esencia: desde la selección manual de los ingredientes hasta el ambiente sereno de una trattoria tradicional."</p>
+        </div>
+    </section>
+
+    <section class="section-dark-editorial">
+        <div class="dark-text">
+            <h2>L'Arte della Calma</h2>
+            <p>Honramos la perfección a través de la espera. Respetamos el reposo sagrado de nuestra masa y la pureza de cada ingrediente, utilizando técnicas heredadas de Lombardía.</p>
+            <p>Nuestra cocina combina hornos de piedra volcánica con la calidez de Guadalajara, asegurando que cada visita sea un encuentro con la autenticidad.</p>
+        </div>
+        <div class="dark-image"></div>
+    </section>
+
+    <section class="mv-section">
+        <div class="mv-card">
+            <h3>Misión</h3>
+            <p>Preservar la excelencia de la pizza artesanal heredada de Lombardía, adaptándola con calidez al paladar de Guadalajara.</p>
+        </div>
+        <div class="mv-card">
+            <h3>Visión</h3>
+            <p>Consolidarnos como la trattoria de referencia en la ciudad, donde el origen italiano se traduzca en momentos de paz y convivencia.</p>
+        </div>
+    </section>
+
+    <section class="final-closure">
+        <h2>"No buscamos ser la pizzería más rápida, sino el encuentro más memorable. El fuego no solo cocina, el fuego transforma historias en memoria."</h2>
+        <span class="author-line">Fundador</span>
+        <img src="IMAGOTIPO INCONTRO.png" alt="IMAGOTIPO INCONTRO">
+    </section>
+
+    <footer class="footer-monument">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <a href="HISTORIA.html">La Trattoria</a>
+                <a href="MENU.html">Nuestro Menú</a>
+                <a href="EXPERIENCIA.html">Tu Experiencia (Encuesta)</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Zapopan, Jal. México</p>
+                <p>hola@incontro.mx</p>
+            </div>
+            <div class="footer-col">
+                <img src="IMAGOTIPO INCONTRO.png" style="height: 60px; opacity: 0.4;" alt="IMAGOTIPO INCONTRO">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 INCONTRO | TRATTORIA TRADIZIONALE
+        </div>
+    </footer>
+
+</body>
+</html>

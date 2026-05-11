@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCONTRO | Trattoria Lombardia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dark-base: #0B0B0C; 
+            --verde-incontro: #1A291E; 
+            --crema-incontro: #FAF9F7; 
+            --gold-incontro: #C39F64; 
+            --footer-base: #121212; 
+            --texto-claro: #EAEAEA;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--dark-base); 
+            color: var(--texto-claro);
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+        /* =========================================
+           NAVEGACIÓN
+           ========================================= */
+        nav {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; 
+            top: 0; left: 0; width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            background: linear-gradient(rgba(11, 11, 12, 0.95), rgba(11, 11, 12, 0)); 
+            transition: all 0.3s ease;
+        }
+
+        .logo-container img { 
+            height: 35px; 
+            width: auto; 
+            transition: transform 0.3s ease; 
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 2rem; 
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+            white-space: nowrap; 
+        }
+        .nav-links a:hover { color: var(--gold-incontro); }
+
+        /* =========================================
+           HERO
+           ========================================= */
+        .hero {
+            height: 100vh;
+            background-image: url('INTERIOR%20INCONTRO.png');
+            background-position: center bottom;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .imagotipo-hero img {
+            max-height: 250px; 
+            width: auto;
+            max-width: 80%;
+            margin-bottom: 1rem;
+            animation: fadeInUP 1.2s ease-out forwards;
+        }
+
+        .hero-title { font-size: clamp(1.8rem, 5vw, 2.5rem); letter-spacing: 12px; text-transform: uppercase; margin: 0; text-shadow: 2px 4px 15px rgba(0,0,0,0.9); }
+        .hero-subtitle { font-size: clamp(1.2rem, 3vw, 2rem); font-style: italic; color: var(--gold-incontro); margin: 0 0 15px 0; }
+        .hero-divider { width: 60px; height: 1px; background-color: var(--gold-incontro); margin: 0 auto 15px auto; }
+        .hero-year { font-size: 0.8rem; letter-spacing: 6px; color: #ccc; text-transform: uppercase; }
+
+        @keyframes fadeInUP {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =========================================
+           SECCIÓN HISTORIA
+           ========================================= */
+        .story {
+            background-color: var(--verde-incontro); 
+            padding: 10rem 2rem;
+            text-align: center;
+        }
+
+        .story-content { max-width: 850px; margin: 0 auto; }
+        .story h2 { 
+            font-size: clamp(1.8rem, 5vw, 2.2rem); 
+            letter-spacing: 12px; 
+            text-transform: uppercase; 
+            color: white; 
+            margin-bottom: 2rem;
+        }
+        .story p { font-size: 1.2rem; color: var(--texto-claro); font-style: italic; margin-bottom: 3rem; line-height: 1.8; }
+
+        .btn-gold-action {
+            display: inline-block; padding: 1.2rem 3rem;
+            border: 1px solid var(--gold-incontro); color: var(--gold-incontro);
+            text-decoration: none; font-size: 0.75rem; letter-spacing: 3px;
+            text-transform: uppercase; font-weight: 700; transition: all 0.4s ease;
+            background: transparent;
+        }
+        .btn-gold-action:hover { background-color: var(--gold-incontro); color: var(--verde-incontro); transform: translateY(-3px); }
+
+        /* =========================================
+           MENÚ COMPACTO
+           ========================================= */
+        .menu-compact-verde {
+            background-color: var(--verde-incontro);
+            padding: 8rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .menu-header h2 { font-size: 2.2rem; color: var(--crema-incontro); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 4rem; }
+        .menu-list { max-width: 800px; margin: 0 auto; }
+        .menu-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            margin-bottom: 2.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem; transition: all 0.3s ease; text-align: left;
+        }
+        .menu-row:hover { transform: translateX(5px); border-color: var(--gold-incontro); }
+        .menu-info h3 { font-size: 1.2rem; margin: 0; color: var(--crema-incontro); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; }
+        .pill-gold { background-color: var(--gold-incontro); color: var(--verde-incontro); font-size: 0.55rem; padding: 2px 10px; margin-left: 12px; border-radius: 50px; font-weight: 700; text-transform: uppercase; }
+        .menu-info p { font-size: 0.9rem; color: #ccc; font-style: italic; }
+        .menu-price { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold-incontro); font-weight: bold; }
+
+        /* =========================================
+           FOOTER 
+           ========================================= */
+        .footer-monument {
+            background-color: var(--footer-base);
+            padding: 6rem 2rem 4rem 2rem;
+            text-align: center;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            gap: 4rem;
+            text-align: left;
+        }
+        .footer-col h4 { color: var(--gold-incontro); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(195, 159, 100, 0.2); padding-bottom: 10px; }
+        .footer-col p, .footer-col a { color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; transition: 0.3s; }
+        .footer-col a:hover { color: white; transform: translateX(5px); }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 2rem;
+            color: #444; font-size: 0.7rem; letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; 
+                padding: 1rem;
+                background-color: rgba(11, 11, 12, 0.98); 
+            }
+            .logo-container { margin-bottom: 0.8rem; }
+            .logo-container img { height: 25px; }
+            .nav-links {
+                gap: 1rem; 
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap; 
+            }
+            .nav-links a { font-size: 0.65rem; letter-spacing: 1px; }
+            .hero { padding-top: 80px; } 
+            
+            .menu-row { flex-direction: column; gap: 0.5rem; }
+            .menu-price { align-self: flex-end; }
+            
+            .footer-grid { text-align: center; gap: 2rem; }
+            .story { padding: 6rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="INCONTRO.html" class="logo-container">
+            <img src="LOGOTIPO%20INCONTRO.png" alt="Logotipo INCONTRO">
+        </a>
+        <div class="nav-links">
+            <a href="HISTORIA.html">La Trattoria</a>
+            <a href="MENU.html">Menú</a>
+            <a href="EXPERIENCIA.html">Tu Experiencia</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="imagotipo-hero">
+            <img src="IMAGOTIPO INCONTRO.png" alt="Imagotipo INCONTRO">
+        </div>
+        <div class="hero-text-container">
+            <h1 class="hero-title">INCONTRO</h1>
+            <h2 class="hero-subtitle">Lombardía</h2>
+            <div class="hero-divider"></div>
+            <p class="hero-year">Desde 2026</p>
+        </div>
+    </section>
+
+    <section id="historia" class="story">
+        <div class="story-content">
+            <span style="letter-spacing: 5px; color: var(--gold-incontro); font-size: 0.7rem; text-transform: uppercase; display: block; margin-bottom: 1rem;">Legado & Tradición</span>
+            <h2>El Legado de la Calma</h2>
+            <p>Honramos la perfección a través de la espera. En INCONTRO, respetamos el reposo sagrado de nuestra masa y la pureza de cada ingrediente, creando un refugio para disfrutar la vida sin prisa.</p>
+            <a href="HISTORIA.html" class="btn-gold-action">Nuestra Historia</a>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-compact-verde">
+        <div class="menu-header">
+            <span style="letter-spacing: 3px; font-size: 0.8rem; color: var(--gold-incontro);">BEST SELLERS</span>
+            <h2>Nuestra Selección</h2>
+        </div>
+
+        <div class="menu-list">
+            <div class="menu-row">
+                <div class="menu-info">
+                    <h3>Margherita <span class="pill-gold">Best Seller</span></h3>
+                    <p>Salsa de Pomodoro, Fior di Latte, Albahaca, Oliva Extra.</p>
+                </div>
+                <div class="menu-price">$265.00&nbsp;</div>
+            </div>
+
+            <div class="menu-row">
+                <div class="menu-info">
+                    <h3>Diavola <span class="pill-gold">Especialidad</span></h3>
+                    <p>Salami Calabrese, Peperoncino, Queso de la Región.</p>
+                </div>
+                <div class="menu-price">$325.00</div>
+            </div>
+
+            <div class="menu-row">
+                <div class="menu-info">
+                    <h3>Prosciutto e Funghi <span class="pill-gold">Top</span></h3>
+                    <p>Jamón Crudo, Champiñones Portobello, Mozzarella de Búfala.</p>
+                </div>
+                <div class="menu-price">$340.00</div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                 <a href="MENU.html" class="btn-gold-action">Ver Menú Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-monument">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <a href="HISTORIA.html">La Trattoria</a>
+                <a href="MENU.html">Nuestro Menú</a>
+                <a href="EXPERIENCIA.html">Tu Experiencia (Encuesta)</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Zapopan, Jal. México</p>
+                <p>hola@incontro.mx</p>
+            </div>
+            <div class="footer-col">
+                <img src="IMAGOTIPO INCONTRO.png" style="height: 60px; opacity: 0.4;" alt="IMAGOTIPO INCONTRO">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 INCONTRO | TRATTORIA TRADIZIONALE
+        </div>
+    </footer>
+
+</body>
+</html>

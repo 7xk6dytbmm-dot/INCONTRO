@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Experiencia | INCONTRO Lombardía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --verde-incontro: #1A291E; 
+            --crema-incontro: #FAF9F7; 
+            --gold-incontro: #C39F64; 
+            --footer-base: #121212; 
+            --texto-claro: #EAEAEA;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--verde-incontro); 
+            color: var(--texto-claro);
+            margin: 0;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+        /* =========================================
+           NAVEGACIÓN UNIVERSAL
+           ========================================= */
+        nav {
+            padding: 1.5rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; top: 0; left: 0; width: 100%;
+            box-sizing: border-box; z-index: 1000;
+            background: linear-gradient(rgba(26, 41, 30, 0.95), rgba(26, 41, 30, 0)); 
+        }
+        .logo-container img { height: 35px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: white; text-decoration: none; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--gold-incontro); }
+
+        /* =========================================
+           HERO COMPACTO 
+           ========================================= */
+        .hero-mini {
+            height: 40vh;
+            background-image: linear-gradient(rgba(26, 41, 30, 0.7), rgba(26, 41, 30, 0.9)), url('HISTORIA.jpg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero-mini h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 10px; text-transform: uppercase; margin: 0; color: var(--crema-incontro); }
+        .hero-mini p { font-style: italic; color: var(--gold-incontro); margin-top: 10px; letter-spacing: 2px; }
+
+        /* =========================================
+           FORMULARIO DE ENCUESTA 
+           ========================================= */
+        .survey-container {
+            max-width: 800px;
+            margin: 0 auto 8rem auto;
+            padding: 3rem 2rem;
+            background-color: var(--verde-incontro);
+        }
+
+        .survey-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .survey-header h2 {
+            font-size: 2rem;
+            color: var(--crema-incontro);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .survey-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--crema-incontro);
+            opacity: 0.8;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(250, 249, 247, 0.05); 
+            border: 1px solid rgba(250, 249, 247, 0.2);
+            color: var(--crema-incontro);
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--gold-incontro);
+            background-color: rgba(250, 249, 247, 0.1);
+        }
+
+        ::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+        select {
+            appearance: none; 
+            background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position-x: 98%;
+            background-position-y: 50%;
+        }
+        
+        select option {
+            background-color: var(--verde-incontro);
+            color: var(--crema-incontro);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .privacy-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .privacy-checkbox input { margin-top: 3px; }
+        .privacy-checkbox a { color: var(--gold-incontro); text-decoration: none; }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 1.2rem;
+            margin-top: 3rem;
+            background-color: transparent;
+            border: 1px solid var(--gold-incontro);
+            color: var(--gold-incontro);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .btn-submit:hover {
+            background-color: var(--gold-incontro);
+            color: var(--verde-incontro);
+        }
+
+        /* =========================================
+           FOOTER UNIVERSAL
+           ========================================= */
+        .footer-monument {
+            background-color: var(--footer-base);
+            padding: 6rem 2rem 4rem 2rem;
+            text-align: center;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            max-width: 1200px; margin: 0 auto 4rem auto; gap: 4rem; text-align: left;
+        }
+        .footer-col h4 { color: var(--gold-incontro); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(195, 159, 100, 0.2); padding-bottom: 10px; }
+        .footer-col p, .footer-col a { color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; transition: 0.3s; }
+        .footer-col a:hover { color: white; transform: translateX(5px); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; color: #444; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="INCONTRO.html" class="logo-container">
+            <img src="LOGOTIPO INCONTRO.png" alt="LOGOTIPO INCONTRO">
+        </a>
+        <div class="nav-links">
+            <a href="HISTORIA.html">La Trattoria</a>
+            <a href="MENU.html">Nuestro Menú</a>
+            <a href="EXPERIENCIA.html">Tu Experiencia</a>
+        </div>
+    </nav>
+
+    <header class="hero-mini">
+        <h1>Tu Experiencia</h1>
+        <p>Ayúdanos a perfeccionar la calma</p>
+    </header>
+
+    <main class="survey-container">
+        <div class="survey-header">
+            <h2>Conociendo Nuestro Legado</h2>
+            <p>Para INCONTRO, cada visita es un encuentro sagrado. Por favor, tómate un momento para compartirnos tu experiencia; tus comentarios son el fuego que mantiene viva nuestra tradición.</p>
+        </div>
+
+        <form action="procesar_encuesta.php" method="POST">
+            
+            <div class="form-row form-group">
+                <div>
+                    <label for="nombre">Nombre y Apellido *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Giovanni Rossi" required>
+                </div>
+                <div>
+                    <label for="email">Correo Electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+            </div>
+
+            <div class="form-row form-group">
+                <div>
+                    <label for="fecha_visita">Fecha de tu visita *</label>
+                    <input type="date" id="fecha_visita" name="fecha_visita" required>
+                </div>
+                <div>
+                    <label for="motivo">Motivo de la visita</label>
+                    <select id="motivo" name="motivo">
+                        <option value="casual">Cena Casual</option>
+                        <option value="aniversario">Aniversario / Celebración</option>
+                        <option value="negocios">Negocios</option>
+                        <option value="primera_vez">Primera Vez</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row form-group">
+                <div>
+                    <label for="calidad">Calidad de los Alimentos *</label>
+                    <select id="calidad" name="calidad" required>
+                        <option value="5">Excelente (Como en Lombardía)</option>
+                        <option value="4">Muy Buena</option>
+                        <option value="3">Buena</option>
+                        <option value="2">Regular</option>
+                        <option value="1">Necesita Mejorar</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="servicio">Atención y Servicio *</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="5">Excelente</option>
+                        <option value="4">Muy Bueno</option>
+                        <option value="3">Bueno</option>
+                        <option value="2">Regular</option>
+                        <option value="1">Necesita Mejorar</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comentarios">Cuéntanos más sobre tu experiencia (Opcional)</label>
+                <textarea id="comentarios" name="comentarios" placeholder="¿Hubo algún platillo que te marcara? ¿Algo que podamos mejorar?"></textarea>
+            </div>
+
+            <div class="privacy-checkbox">
+                <input type="checkbox" id="privacidad" name="privacidad" required>
+                <label for="privacidad" style="text-transform: none; letter-spacing: normal;">He leído y acepto la <a href="#">Política de Privacidad</a> para el tratamiento de mis datos.</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar Experiencia</button>
+
+        </form>
+    </main>
+
+    <footer class="footer-monument">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <a href="HISTORIA.html">La Trattoria</a>
+                <a href="MENU.html">Nuestro Menú</a>
+                <a href="EXPERIENCIA.html">Tu Experiencia (Encuesta)</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Zapopan, Jal. México</p>
+                <p>hola@incontro.mx</p>
+            </div>
+            <div class="footer-col">
+                <img src="IMAGOTIPO INCONTRO.png" style="height: 60px; opacity: 0.4;" alt="IMAGOTIPO INCONTRO">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 INCONTRO | TRATTORIA TRADIZIONALE
+        </div>
+    </footer>
+
+</body>
+</html>
